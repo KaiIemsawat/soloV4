@@ -36,7 +36,7 @@ export default function TrailFormPage() {
             </>
         );
     }
-    // fagdggserghfhjfyjkguykiuyoui
+    // fagdggserghfhjfyjkguykiuyouifvsbhsdfgthjyjkfhk
     async function submitHandler(e) {
         e.preventDefault();
         await axios.post("/trails", {
