@@ -24,6 +24,7 @@ export default function Amenities({ selected, onChange }) {
                 <GrWheelchair className="" />
                 <input
                     type="checkbox"
+                    checked={selected.includes("wheelchair")}
                     name="wheelchair"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
@@ -34,6 +35,7 @@ export default function Amenities({ selected, onChange }) {
                 <TbParking className="" />
                 <input
                     type="checkbox"
+                    checked={selected.includes("parking")}
                     name="parking"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
@@ -44,6 +46,7 @@ export default function Amenities({ selected, onChange }) {
                 <TbTent className="" />
                 <input
                     type="checkbox"
+                    checked={selected.includes("campsite")}
                     name="campsite"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
@@ -54,6 +57,7 @@ export default function Amenities({ selected, onChange }) {
                 <IoCloudyNightOutline className="" />
                 <input
                     type="checkbox"
+                    checked={selected.includes("night")}
                     name="night"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
@@ -64,6 +68,7 @@ export default function Amenities({ selected, onChange }) {
                 <PiTicketBold className="" />
                 <input
                     type="checkbox"
+                    checked={selected.includes("permit")}
                     name="permit"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
@@ -74,6 +79,7 @@ export default function Amenities({ selected, onChange }) {
                 <PiDogBold className="" />
                 <input
                     type="checkbox"
+                    checked={selected.includes("pets")}
                     name="pets"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
@@ -84,6 +90,7 @@ export default function Amenities({ selected, onChange }) {
                 <GiForestCamp className="" />
                 <input
                     type="checkbox"
+                    checked={selected.includes("backcountry")}
                     name="backcountry"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
@@ -94,6 +101,7 @@ export default function Amenities({ selected, onChange }) {
                 <BsBookmarks className="" />
                 <input
                     type="checkbox"
+                    checked={selected.includes("guideMark")}
                     name="guideMark"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
@@ -104,6 +112,7 @@ export default function Amenities({ selected, onChange }) {
                 <LiaRestroomSolid className="" />
                 <input
                     type="checkbox"
+                    checked={selected.includes("restroom")}
                     name="restroom"
                     onChange={checkboxClickHandler}
                     className="accent-primary"

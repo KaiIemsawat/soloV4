@@ -28,6 +28,14 @@ export default function TrailFormPage() {
         axios.get(`/trails/${id}`).then((response) => {
             const { data } = response;
             setTitle(data.title);
+            setLocation(data.location);
+            setAddedPhoto(data.photo);
+            setDescriptions(data.descriptions);
+            setAmenities(data.amenities);
+            setExtraInfo(data.extraInfo);
+            setDistance(data.distance);
+            setDifficulty(data.difficulty);
+            setDuration(data.duration);
         });
     }, [id]);
 
