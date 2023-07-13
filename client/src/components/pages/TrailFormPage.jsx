@@ -58,7 +58,7 @@ export default function TrailFormPage() {
 
     async function submitHandler(e) {
         e.preventDefault();
-        await axios.post("/trails", {
+        const trailsData = {
             title,
             location,
             addedPhoto,
@@ -68,8 +68,24 @@ export default function TrailFormPage() {
             distance,
             difficulty,
             duration,
-        });
-        nav("/account/myTrails");
+        };
+
+        if (id) {
+            // if there is id as params
+            // edit current trail
+            await axios.put("/trails", {
+                id,
+                ...trailsData,
+            });
+            nav("/account/myTrails");
+        } else {
+            // if there is no id in params
+            // add new trail
+            await axios.post("/trails", {
+                ...trailsData,
+            });
+            nav("/account/myTrails");
+        }
     }
 
     return (

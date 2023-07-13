@@ -48,10 +48,11 @@ export default function MyTrails() {
                             <Link
                                 to={`/account/myTrails/${eachTrail._id}`}
                                 className="flex cursor-pointer gap-4 bg-slate-100 p-4 rounded-2xl">
-                                <div className="w-32 h-32 bg-slate-50 grow-0 shrink">
+                                <div className="flex w-32 h-32 bg-slate-50 grow-0 shrink">
                                     {eachTrail.photo.length > 0 && (
                                         <img
-                                            src={eachTrail.photo[0]}
+                                            className="object-cover" // to avoid image to stress
+                                            src={`http://localhost:8000/uploads/${eachTrail.photo[0]}`}
                                             alt={`${eachTrail.title} image`}
                                         />
                                     )}

@@ -183,15 +183,53 @@ app.get("/trails/:id", async (req, res) => {
     res.json(await TrailModel.findById(id));
 });
 
+app.put("/trails", async (req, res) => {
+    const { token } = req.cookies;
+    const {
+        id,
+        title,
+        location,
+        addedPhoto,
+        descriptions,
+        amenities,
+        extraInfo,
+        distance,
+        difficulty,
+        duration,
+    } = req.body;
+    jwt.verify(token, jwtScret, {}, async (err, userData) => {
+        if (err) throw err;
+
+        const trailsDoc = await TrailModel.findById(id);
+        if (userData.id === trailsDoc.poster.toString()) {
+            trailsDoc.set({
+                title,
+                location,
+                photo: addedPhoto,
+                descriptions,
+                amenities,
+                extraInfo,
+                distance,
+                difficulty,
+                duration,
+            });
+            await trailsDoc.save();
+            res.json("UPDATE OK");
+        }
+    });
+});
+
 app.listen(8000);
 
 /* 
-/register
-/login
-/profile
-/logout
-/uploadByLink
-/upload
-/trails
-/trails/:id
+POST /register
+POST /login
+GET  /profile
+POST /logout
+POST /uploadByLink
+POST /upload
+POST /trails
+GET  /trails
+GET  /trails/:id
+PUT  /trails
 */
