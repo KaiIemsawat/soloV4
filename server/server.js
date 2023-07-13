@@ -86,7 +86,6 @@ app.get("/profile", (req, res) => {
         res.json(null);
     }
 });
-
 app.post("/logout", (erq, res) => {
     res.cookie("token", "").json(true);
 });
@@ -156,7 +155,7 @@ app.post("/trails", (req, res) => {
             poster: userData.id,
             title,
             location,
-            addedPhoto,
+            photo: addedPhoto,
             descriptions,
             amenities,
             extraInfo,
@@ -171,16 +170,22 @@ app.post("/trails", (req, res) => {
     });
 });
 
+app.get("/trails", (req, res) => {
+    const { token } = req.cookies;
+    jwt.verify(token, jwtScret, {}, async (err, userData) => {
+        const { id } = userData;
+        res.json(await TrailModel.find({ poster: id }));
+    });
+});
+
 app.listen(8000);
 
 /* 
-    poster: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    title: { type: String, required: true, minLength: 2, unique: true },
-    location: { type: String, required: true, minLength: 2 },
-    photo: [String],
-    distance: Number,
-    difficulty: Number,
-    duration: Number,
-    amenities: [String],
-    descriptions: String,
-    extraInfo: String, */
+/register
+/login
+/profile
+/logout
+/uploadByLink
+/upload
+/trails
+*/

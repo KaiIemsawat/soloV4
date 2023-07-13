@@ -26,6 +26,10 @@ function App() {
                         path="/account/myTrails/new"
                         element={<TrailFormPage />}
                     />
+                    <Route
+                        path="/account/myTrails/:id"
+                        element={<TrailFormPage />}
+                    />
                 </Route>
             </Routes>
         </UserContextProvider>

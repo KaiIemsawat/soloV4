@@ -1,24 +1,32 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Amenities from "../Amenities";
 import axios from "axios";
 import PhotoUploader from "../PhotoUploader";
 import AccountNavigation from "../AccountNavigation";
 
 export default function TrailFormPage() {
-    const { action } = useParams();
+    const { id } = useParams();
+
     const nav = useNavigate();
 
     const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
     const [addedPhoto, setAddedPhoto] = useState([]);
     const [photoLink, setPhotoLink] = useState("");
-    const [description, setDescription] = useState("");
+    const [descriptions, setDescriptions] = useState("");
     const [amenities, setAmenities] = useState([]);
     const [extraInfo, setExtraInfo] = useState("");
     const [distance, setDistance] = useState(1);
     const [difficulty, setDifficulty] = useState(1);
     const [duration, setDuration] = useState(1);
+
+    useEffect(() => {
+        if (!id) {
+            return;
+        }
+        axios.get(`/trails/${id}`);
+    }, [id]);
 
     function inputHeader(text) {
         return <h2 className="text-xl  mt-4">{text}</h2>;
@@ -36,14 +44,14 @@ export default function TrailFormPage() {
             </>
         );
     }
-    // fagdggserghfhjfyjkguykiuyouifvsbhsdfgthjyjkfhk
+
     async function submitHandler(e) {
         e.preventDefault();
         await axios.post("/trails", {
             title,
             location,
             addedPhoto,
-            description,
+            descriptions,
             amenities,
             extraInfo,
             distance,
@@ -76,10 +84,10 @@ export default function TrailFormPage() {
                     addedPhoto={addedPhoto}
                     onChange={setAddedPhoto}
                 />
-                {preInput("Description", "Please input valuable description")}
+                {preInput("Descriptions", "Please input valuable descriptions")}
                 <textarea
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    value={descriptions}
+                    onChange={(e) => setDescriptions(e.target.value)}
                 />
                 {preInput("Amenities", "Select all available amenities")}
                 <div className="mt-2 gap-2 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  xl:grid-cols-6">
