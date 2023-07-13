@@ -46,6 +46,8 @@ export default function MyTrails() {
                     {trails.length > 0 &&
                         trails.map((eachTrail) => (
                             <Link
+                                // this is temporary key
+                                key={eachTrail._id}
                                 to={`/account/myTrails/${eachTrail._id}`}
                                 className="flex cursor-pointer gap-4 bg-slate-100 p-4 rounded-2xl">
                                 <div className="flex w-32 h-32 bg-slate-50 grow-0 shrink">

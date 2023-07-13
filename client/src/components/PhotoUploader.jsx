@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { BiImageAdd } from "react-icons/bi";
 import { CiSquareRemove } from "react-icons/ci";
+import { RiHeartLine, RiHeartFill } from "react-icons/ri";
 
 export default function PhotoUploader({ addedPhoto, onChange }) {
     const [photoLink, setPhotoLink] = useState("");
@@ -52,8 +53,18 @@ export default function PhotoUploader({ addedPhoto, onChange }) {
             });
     }
 
-    function removePhoto(filename) {
-        onChange([...addedPhoto.filter((photo) => photo !== filename)]);
+    function removePhoto(e, filename) {
+        e.preventDefault();
+        onChange([...addedPhoto.filter((eachPhoto) => eachPhoto !== filename)]);
+    }
+
+    function setMainPhoto(e, filename) {
+        e.preventDefault();
+
+        onChange([
+            filename,
+            ...addedPhoto.filter((eachPhoto) => eachPhoto !== filename),
+        ]);
     }
 
     return (
@@ -81,9 +92,18 @@ export default function PhotoUploader({ addedPhoto, onChange }) {
                                 alt=""
                             />
                             <button
-                                onClick={() => removePhoto(link)}
+                                onClick={(e) => removePhoto(e, link)}
                                 className="cursor-pointer absolute bottom-2 right-2 text-slate-300 text-lg font-bold bg-slate-300 bg-opacity-20 rounded">
                                 <CiSquareRemove />
+                            </button>
+                            <button
+                                onClick={(e) => setMainPhoto(e, link)}
+                                className="cursor-pointer absolute top-2 right-2 text-slate-300 text-lg font-bold bg-slate-300 bg-opacity-20 rounded">
+                                {link === addedPhoto[0] ? (
+                                    <RiHeartFill />
+                                ) : (
+                                    <RiHeartLine />
+                                )}
                             </button>
                         </div>
                     ))}
