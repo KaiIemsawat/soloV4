@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { BiImageAdd } from "react-icons/bi";
+import { CiSquareRemove } from "react-icons/ci";
 
 export default function PhotoUploader({ addedPhoto, onChange }) {
     const [photoLink, setPhotoLink] = useState("");
@@ -51,6 +52,10 @@ export default function PhotoUploader({ addedPhoto, onChange }) {
             });
     }
 
+    function removePhoto(filename) {
+        onChange([...addedPhoto.filter((photo) => photo !== filename)]);
+    }
+
     return (
         <>
             <div className="flex gap-2">
@@ -69,12 +74,17 @@ export default function PhotoUploader({ addedPhoto, onChange }) {
             <div className="mt-2 grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
                 {addedPhoto.length > 0 &&
                     addedPhoto.map((link) => (
-                        <div key={link} className="h-32 flex">
+                        <div key={link} className="h-32 flex relative">
                             <img
                                 className="rounded-2xl w-full object-cover"
                                 src={`http://localhost:8000/uploads/${link}`}
                                 alt=""
                             />
+                            <button
+                                onClick={() => removePhoto(link)}
+                                className="cursor-pointer absolute bottom-2 right-2 text-slate-300 text-lg font-bold bg-slate-300 bg-opacity-20 rounded">
+                                <CiSquareRemove />
+                            </button>
                         </div>
                     ))}
 
