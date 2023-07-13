@@ -25,7 +25,10 @@ export default function TrailFormPage() {
         if (!id) {
             return;
         }
-        axios.get(`/trails/${id}`);
+        axios.get(`/trails/${id}`).then((response) => {
+            const { data } = response;
+            setTitle(data.title);
+        });
     }, [id]);
 
     function inputHeader(text) {

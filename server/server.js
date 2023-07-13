@@ -178,6 +178,11 @@ app.get("/trails", (req, res) => {
     });
 });
 
+app.get("/trails/:id", async (req, res) => {
+    const { id } = req.params;
+    res.json(await TrailModel.findById(id));
+});
+
 app.listen(8000);
 
 /* 
@@ -188,4 +193,5 @@ app.listen(8000);
 /uploadByLink
 /upload
 /trails
+/trails/:id
 */
