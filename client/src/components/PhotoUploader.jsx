@@ -110,7 +110,7 @@ export default function PhotoUploader({ addedPhoto, onChange }) {
 
                 {/* --UPLOAD-- */}
 
-                <label className="h-32 cursor-pointer flex items-center justify-center border bg-transparent rounded-2xl p-2 text-slate-500 text-xl gap-1">
+                <label className="h-32 cursor-pointer flex items-center justify-center border bg-transparent rounded-2xl p-2 text-slate-400 text-xl gap-1">
                     <input
                         type="file"
                         multiple
