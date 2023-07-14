@@ -2,6 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { BiLocationPlus, BiImageAdd } from "react-icons/bi";
 import { PiDogBold, PiTicketBold } from "react-icons/pi";
 import { GiForestCamp } from "react-icons/gi";
+import { MdAddLocationAlt } from "react-icons/md";
 import { GrWheelchair } from "react-icons/gr";
 import { TbParking, TbTent } from "react-icons/tb";
 import { useEffect, useState } from "react";
@@ -39,7 +40,7 @@ export default function MyTrails() {
                 <Link
                     className="items-center inline-flex gap-1 bg-primary text-white py-2 px-6 rounded-full"
                     to={"/account/myTrails/new"}>
-                    <BiLocationPlus className="text-lg" />
+                    <MdAddLocationAlt className="text-lg" />
                     add new trail
                 </Link>
                 <div className="mt-4">

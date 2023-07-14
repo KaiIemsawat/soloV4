@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function IndexPage() {
     const [trails, setTrails] = useState([]);
@@ -12,7 +13,7 @@ export default function IndexPage() {
         <div className="mt-8 gap-x-6 gap-y-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             {trails.length > 0 &&
                 trails.map((eachTrail) => (
-                    <div>
+                    <Link to={`/trail/${eachTrail._id}`}>
                         <div className="bg-slate-200 rounded-2xl flex mb-2">
                             {eachTrail.photo?.[0] && (
                                 <img
@@ -22,10 +23,10 @@ export default function IndexPage() {
                                 />
                             )}
                         </div>
-                        <h2 className="text-md text-slate-600 font-bold">
+                        <h2 className="text-sm text-slate-600 font-bold">
                             {eachTrail.location}
                         </h2>
-                        <h2 className="text-md text-slate-500 font-bold truncate leading-6">
+                        <h2 className="text-lg text-slate-500 font-bold truncate leading-6">
                             {/* truncate <-- makes text stay in one line */}
                             {/* leading-4 <-- line hight 4 === 1rem 3 === 0.75rem */}
                             {eachTrail.title}
@@ -42,7 +43,7 @@ export default function IndexPage() {
                                 Miles
                             </span>
                         </div>
-                    </div>
+                    </Link>
                 ))}
         </div>
     );

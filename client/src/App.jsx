@@ -9,6 +9,7 @@ import { UserContextProvider } from "./components/UserContext";
 import ProfilePage from "./components/pages/ProfilePage";
 import MyTrails from "./components/pages/MyTrails";
 import TrailFormPage from "./components/pages/TrailFormPage";
+import TrailPage from "./components/pages/TrailPage";
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
@@ -30,6 +31,7 @@ function App() {
                         path="/account/myTrails/:id"
                         element={<TrailFormPage />}
                     />
+                    <Route path="/trail/:id" element={<TrailPage />} />
                 </Route>
             </Routes>
         </UserContextProvider>
