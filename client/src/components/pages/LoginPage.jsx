@@ -47,7 +47,9 @@ function LoginPage() {
                 </form>
                 <div className="text-center py-2 text-slate-500">
                     Need an account?{" "}
-                    <Link to={"/register"} className="text-slate-900 underline">
+                    <Link
+                        to={"/register"}
+                        className="text-primary font-bold underline">
                         Register
                     </Link>
                 </div>

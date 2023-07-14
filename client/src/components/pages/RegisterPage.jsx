@@ -52,7 +52,9 @@ export default function RegisterPage() {
                 </form>
                 <div className="text-center py-2 text-slate-500">
                     Already have an account?{" "}
-                    <Link to={"/login"} className="text-slate-900 underline">
+                    <Link
+                        to={"/login"}
+                        className="text-primary font-bold underline">
                         Login
                     </Link>
                 </div>
