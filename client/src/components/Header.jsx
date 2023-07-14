@@ -14,7 +14,7 @@ export default function Header() {
                     <CgTrees className="w-6 h-6 text-primary" />
                     <span className="font-bold text-xl">Tra!ls</span>
                 </Link>
-                <div className="flex border gap-2 border-slate-300 rounded-full py-2 px-4 ">
+                {/* <div className="flex border gap-2 border-slate-300 rounded-full py-2 px-4 ">
                     <div className="text-slate-400">My Trails</div>
                     <div className=" border-l border-slate-300"></div>
                     <div className="text-slate-400">All Trails</div>
@@ -23,7 +23,7 @@ export default function Header() {
                     <button className="bg-primary text-white p-1 rounded-full">
                         <BiSearch />
                     </button>
-                </div>
+                </div> */}
                 <Link
                     to={user ? "/account" : "/login"}
                     className="flex items-center border gap-2 border-slate-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">

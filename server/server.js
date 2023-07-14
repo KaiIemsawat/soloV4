@@ -223,6 +223,12 @@ app.get("/allTrails", async (req, res) => {
     res.json(await TrailModel.find());
 });
 
+app.delete("/deleteTrail/:id", (req, res) => {
+    TrailModel.deleteOne({ _id: req.params.id }).catch((err) => {
+        res.status(400).json({ message: "something wrong when delete", err });
+    });
+});
+
 app.listen(8000);
 
 /* 

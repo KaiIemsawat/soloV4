@@ -176,6 +176,11 @@ export default function TrailFormPage() {
                 </div>
                 <button className="primary mt-4">save my trail</button>
             </form>
+            {/* <div className="flex flex-col items-center">
+                <button className=" bg-slate-300 w-1/4 my-4 py-2 px-4 rounded-2xl" onClick={() => deleteHandler()}>
+                    remove
+                </button>
+            </div> */}
         </div>
     );
 }
