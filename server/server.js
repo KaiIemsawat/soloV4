@@ -170,7 +170,7 @@ app.post("/trails", (req, res) => {
     });
 });
 
-app.get("/trails", (req, res) => {
+app.get("/userTrails", (req, res) => {
     const { token } = req.cookies;
     jwt.verify(token, jwtScret, {}, async (err, userData) => {
         const { id } = userData;
@@ -219,6 +219,10 @@ app.put("/trails", async (req, res) => {
     });
 });
 
+app.get("/allTrails", async (req, res) => {
+    res.json(await TrailModel.find());
+});
+
 app.listen(8000);
 
 /* 
@@ -229,7 +233,8 @@ POST /logout
 POST /uploadByLink
 POST /upload
 POST /trails
-GET  /trails
+GET  /userTrails
 GET  /trails/:id
 PUT  /trails
+GET  /allTrails
 */

@@ -14,7 +14,7 @@ import AccountNavigation from "../AccountNavigation";
 export default function MyTrails() {
     const [trails, setTrails] = useState([]);
     useEffect(() => {
-        axios.get("/trails").then(({ data }) => {
+        axios.get("/userTrails").then(({ data }) => {
             setTrails(data);
         });
     }, []);
@@ -49,8 +49,8 @@ export default function MyTrails() {
                                 // this is temporary key
                                 key={eachTrail._id}
                                 to={`/account/myTrails/${eachTrail._id}`}
-                                className="flex cursor-pointer gap-4 bg-slate-100 p-4 rounded-2xl">
-                                <div className="flex w-32 h-32 bg-slate-50 grow-0 shrink">
+                                className="flex cursor-pointer gap-4 bg-slate-100 p-4 rounded-2xl my-4">
+                                <div className="flex w-32 h-32 bg-slate-50 grow-0 shrink-0">
                                     {eachTrail.photo.length > 0 && (
                                         <img
                                             className="object-cover" // to avoid image to stress
