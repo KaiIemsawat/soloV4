@@ -116,6 +116,20 @@ export default function TrailPage() {
                     Duration : {trail.duration} hour(s)
                 </div>
             </div>
+            {trail?.amenities?.length > 0 && (
+                <div className="mx-2 my-4">
+                    <h2 className="font-semibold text-2xl text-slate-700">
+                        Amenities
+                    </h2>
+                    <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6  mt-4 gap-2">
+                        {trail.amenities.map((eaAmenity) => (
+                            <div className="bg-slate-100 px-4 py-2 rounded-2xl text-slate-500 text-sm font-bold text-center">
+                                {eaAmenity}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
             <div className="bg-slate-100 -mx-8 my-4 px-8 py-4">
                 <div className="mx-2">
                     <h3 className="font-semibold text-xl text-slate-500">
