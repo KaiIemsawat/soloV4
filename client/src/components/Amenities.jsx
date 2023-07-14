@@ -57,8 +57,8 @@ export default function Amenities({ selected, onChange }) {
                 <IoCloudyNightOutline className="" />
                 <input
                     type="checkbox"
-                    checked={selected.includes("night")}
-                    name="night"
+                    checked={selected.includes("night usage")}
+                    name="night usage"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
                 />
@@ -68,8 +68,8 @@ export default function Amenities({ selected, onChange }) {
                 <PiTicketBold className="" />
                 <input
                     type="checkbox"
-                    checked={selected.includes("permit")}
-                    name="permit"
+                    checked={selected.includes("permit required")}
+                    name="permit required"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
                 />
@@ -101,8 +101,8 @@ export default function Amenities({ selected, onChange }) {
                 <BsBookmarks className="" />
                 <input
                     type="checkbox"
-                    checked={selected.includes("guideMark")}
-                    name="guideMark"
+                    checked={selected.includes("guide mark")}
+                    name="guide mark"
                     onChange={checkboxClickHandler}
                     className="accent-primary"
                 />

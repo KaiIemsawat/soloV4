@@ -12,8 +12,8 @@ export default function IndexPage() {
     return (
         <div className="mt-8 gap-x-6 gap-y-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             {trails.length > 0 &&
-                trails.map((eachTrail) => (
-                    <Link to={`/trail/${eachTrail._id}`}>
+                trails.map((eachTrail, id) => (
+                    <Link to={`/trail/${eachTrail._id}`} key={id}>
                         <div className="bg-slate-200 rounded-2xl flex mb-2">
                             {eachTrail.photo?.[0] && (
                                 <img

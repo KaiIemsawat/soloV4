@@ -36,8 +36,8 @@ export default function TrailPage() {
                         </button>
                     </div>
                     {trail?.photo?.length > 0 &&
-                        trail.photo.map((eachPhoto) => (
-                            <div>
+                        trail.photo.map((eachPhoto, index) => (
+                            <div key={index}>
                                 <img
                                     className="min-w-full"
                                     src={`http://localhost:8000/uploads/${eachPhoto}`}
@@ -122,8 +122,10 @@ export default function TrailPage() {
                         Amenities
                     </h2>
                     <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6  mt-4 gap-2">
-                        {trail.amenities.map((eaAmenity) => (
-                            <div className="bg-slate-100 px-4 py-2 rounded-2xl text-slate-500 text-sm font-bold text-center">
+                        {trail.amenities.map((eaAmenity, index) => (
+                            <div
+                                key={index}
+                                className="bg-slate-100 px-4 py-2 rounded-2xl text-slate-500 text-sm  text-center">
                                 {eaAmenity}
                             </div>
                         ))}
