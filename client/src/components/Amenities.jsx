@@ -1,5 +1,4 @@
-import { LiaDogSolid } from "react-icons/lia";
-import { HiOutlineTicket } from "react-icons/hi";
+import { PiDogBold, PiTicketBold } from "react-icons/pi";
 import { GiForestCamp } from "react-icons/gi";
 import { GrWheelchair } from "react-icons/gr";
 import { LiaRestroomSolid } from "react-icons/lia";
@@ -66,7 +65,7 @@ export default function Amenities({ selected, onChange }) {
                 <span className="text-slate-500">Night usage</span>
             </label>
             <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-                <HiOutlineTicket className="" />
+                <PiTicketBold className="" />
                 <input
                     type="checkbox"
                     checked={selected.includes("permit required")}
@@ -77,7 +76,7 @@ export default function Amenities({ selected, onChange }) {
                 <span className="text-slate-500">Permit required</span>
             </label>
             <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-                <LiaDogSolid className="" />
+                <PiDogBold className="" />
                 <input
                     type="checkbox"
                     checked={selected.includes("pets")}
