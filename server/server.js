@@ -18,13 +18,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads/", express.static(`${__dirname}/uploads/`)); // <-- used to handle uploaded photos
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
-mongoose.connect(
-    "mongodb+srv://kaiiemsawat:Kinkin3710@cluster0.48awedd.mongodb.net/trails?retryWrites=true&w=majority"
-);
 
-app.get("/test", (req, res) => {
-    res.json("Test OK");
-});
+require("./config/trailsConfig");
 
 app.post("/register", async (req, res) => {
     const { username, email, password } = req.body;
@@ -232,15 +227,16 @@ app.delete("/deleteTrail/:id", (req, res) => {
 app.listen(8000);
 
 /* 
-POST /register
-POST /login
-GET  /profile
-POST /logout
-POST /uploadByLink
-POST /upload
-POST /trails
-GET  /userTrails
-GET  /trails/:id
-PUT  /trails
-GET  /allTrails
+POST    /register
+POST    /login
+GET     /profile
+POST    /logout
+POST    /uploadByLink
+POST    /upload
+POST    /trails
+GET     /userTrails
+GET     /trails/:id
+PUT     /trails
+GET     /allTrails
+DELETE  /deleteTrail/:id
 */

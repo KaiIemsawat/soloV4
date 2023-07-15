@@ -17,12 +17,11 @@ export default function IndexPage() {
                 <div>
                     {" "}
                     <div className="mb-64">
-                        <h1 className="text-2xl text-center text-slate-500 mb-4">
-                            Welcome back to{" "}
+                        <h1 className="font-thin text-2xl text-center text-slate-500 mb-4">
+                            Welcome back to Tra!ls,{" "}
                             <span className="font-bold text-primary">
-                                Tra!ls
-                            </span>{" "}
-                            {user.username}
+                                {user.username}
+                            </span>
                         </h1>
                     </div>
                 </div>
@@ -30,8 +29,8 @@ export default function IndexPage() {
                 <div>
                     {" "}
                     <div className="mb-64">
-                        <h1 className="text-2xl text-center text-slate-500 mb-4">
-                            You are just steps away to{" "}
+                        <h1 className="font-thin text-2xl text-center text-slate-500 mb-4">
+                            You are just steps away to...{" "}
                             <span className="font-bold text-primary">
                                 Tra!ls
                             </span>
