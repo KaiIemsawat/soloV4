@@ -224,7 +224,7 @@ app.delete("/deleteTrail/:id", (req, res) => {
     });
 });
 
-app.listen(8000);
+app.listen(process.env.MONGO_URL || 8000);
 
 /* 
 POST    /register
