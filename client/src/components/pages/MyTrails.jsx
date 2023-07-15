@@ -1,15 +1,10 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { BiLocationPlus, BiImageAdd } from "react-icons/bi";
-import { PiDogBold, PiTicketBold } from "react-icons/pi";
-import { GiForestCamp } from "react-icons/gi";
 import { MdAddLocationAlt } from "react-icons/md";
 import { CiSquareRemove } from "react-icons/ci";
-import { TbParking, TbTent } from "react-icons/tb";
 import { useEffect, useState } from "react";
-import Amenities from "../Amenities";
+
 import axios from "axios";
-import PhotoUploader from "../PhotoUploader";
-import TrailFormPage from "./TrailFormPage";
+
 import AccountNavigation from "../AccountNavigation";
 
 export default function MyTrails() {

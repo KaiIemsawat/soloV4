@@ -21,6 +21,7 @@ app.use("/uploads/", express.static(`${__dirname}/uploads/`)); // <-- used to ha
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 mongoose.connect(
     "mongodb+srv://kaiiemsawat:Kinkin3710@cluster0.48awedd.mongodb.net/trails?retryWrites=true&w=majority"
+    // { useNewUrlParser: true }
 );
 
 app.get("/test", (req, res) => {

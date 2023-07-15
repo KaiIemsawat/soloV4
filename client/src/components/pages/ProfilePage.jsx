@@ -1,8 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../UserContext";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import { HiOutlineUser } from "react-icons/hi";
-import { CgTrees, CgTree } from "react-icons/cg";
 import axios from "axios";
 import MyTrails from "./MyTrails";
 import AccountNavigation from "../AccountNavigation";
