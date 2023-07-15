@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const imageDownloader = require("image-downloader");
 const multer = require("multer");
 const fs = require("fs");
+require("dotenv").config();
 
 const UserModel = require("./models/userModel");
 const TrailModel = require("./models/trailsModel");
@@ -228,7 +229,10 @@ app.delete("/deleteTrail/:id", (req, res) => {
     });
 });
 
-app.listen(8000);
+// app.listen(8000);
+app.listen(process.env.PORT || 8000, () => {
+    "Connected !!!";
+});
 
 /* 
 POST /register
