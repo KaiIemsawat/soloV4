@@ -10,7 +10,6 @@ import ProfilePage from "./components/pages/ProfilePage";
 import MyTrails from "./components/pages/MyTrails";
 import TrailFormPage from "./components/pages/TrailFormPage";
 import TrailPage from "./components/pages/TrailPage";
-import AllTrails from "./components/pages/AllTrails";
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
@@ -24,7 +23,6 @@ function App() {
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/account" element={<ProfilePage />} />
                     <Route path="/account/myTrails" element={<MyTrails />} />
-                    <Route path="/account/allTrails" element={<AllTrails />} />
                     <Route
                         path="/account/myTrails/new"
                         element={<TrailFormPage />}

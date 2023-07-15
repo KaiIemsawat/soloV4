@@ -18,8 +18,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads/", express.static(`${__dirname}/uploads/`)); // <-- used to handle uploaded photos
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+mongoose.connect(
+    "mongodb+srv://kaiiemsawat:Kinkin3710@cluster0.48awedd.mongodb.net/trails?retryWrites=true&w=majority"
+);
 
-require("./config/trailsConfig");
+app.get("/test", (req, res) => {
+    res.json("Test OK");
+});
 
 app.post("/register", async (req, res) => {
     const { username, email, password } = req.body;
@@ -40,7 +45,10 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
     const userDoc = await UserModel.findOne({ email });
-    if (userDoc) {
+    if (!userDoc) {
+        console.log("Can not find user in database");
+        res.json("User not founnd");
+    } else {
         console.log("Found user in database");
         const isPasswordOk = bcrypt.compareSync(password, userDoc.password);
         if (isPasswordOk) {
@@ -61,11 +69,38 @@ app.post("/login", async (req, res) => {
             console.log("Password is incorrect");
             res.json({ message: "invalid credentials" });
         }
-    } else {
-        console.log("Can not find user in database");
-        res.json("User not founnd");
     }
 });
+
+// app.post("/login", async (req, res) => {
+//     const { email, password } = req.body;
+//     const userDoc = await UserModel.findOne({ email });
+//     if (userDoc) {
+//         console.log("Found user in database");
+//         const isPasswordOk = bcrypt.compareSync(password, userDoc.password);
+//         if (isPasswordOk) {
+//             console.log("User provide valid credentials");
+//             jwt.sign(
+//                 {
+//                     email: userDoc.email,
+//                     id: userDoc._id,
+//                 },
+//                 jwtScret,
+//                 {},
+//                 (err, token) => {
+//                     if (err) throw err;
+//                     res.cookie("token", token).json(userDoc);
+//                 }
+//             );
+//         } else {
+//             console.log("Password is incorrect");
+//             res.json({ message: "invalid credentials" });
+//         }
+//     } else {
+//         console.log("Can not find user in database");
+//         res.json("User not founnd");
+//     }
+// });
 
 app.get("/profile", (req, res) => {
     const { token } = req.cookies;
@@ -218,25 +253,18 @@ app.get("/allTrails", async (req, res) => {
     res.json(await TrailModel.find());
 });
 
-app.delete("/deleteTrail/:id", (req, res) => {
-    TrailModel.deleteOne({ _id: req.params.id }).catch((err) => {
-        res.status(400).json({ message: "something wrong when delete", err });
-    });
-});
-
-app.listen(process.env.MONGO_URL || 8000);
+app.listen(8000);
 
 /* 
-POST    /register
-POST    /login
-GET     /profile
-POST    /logout
-POST    /uploadByLink
-POST    /upload
-POST    /trails
-GET     /userTrails
-GET     /trails/:id
-PUT     /trails
-GET     /allTrails
-DELETE  /deleteTrail/:id
+POST /register
+POST /login
+GET  /profile
+POST /logout
+POST /uploadByLink
+POST /upload
+POST /trails
+GET  /userTrails
+GET  /trails/:id
+PUT  /trails
+GET  /allTrails
 */

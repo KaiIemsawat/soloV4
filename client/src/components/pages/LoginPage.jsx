@@ -15,9 +15,15 @@ function LoginPage() {
         try {
             const data = await axios.post("/login", { email, password });
             setUser(data);
-            alert("LOGGED IN");
-            nav("/");
-            window.location.reload(); // ! tempory fix issue that the name only appear once refresh page
+            console.log(data.data);
+            if (data.data === "User not founnd") {
+                alert("User not found");
+                window.location.reload(); // ! tempory fix issue that the name only appear once refresh page
+            } else {
+                alert("LOGGED IN");
+                nav("/");
+                window.location.reload(); // ! tempory fix issue that the name only appear once refresh page
+            }
         } catch (error) {
             alert("FAILED TO LOG IN");
             console.error(error);
@@ -47,9 +53,7 @@ function LoginPage() {
                 </form>
                 <div className="text-center py-2 text-slate-500">
                     Need an account?{" "}
-                    <Link
-                        to={"/register"}
-                        className="text-primary font-bold underline">
+                    <Link to={"/register"} className="text-slate-900 underline">
                         Register
                     </Link>
                 </div>

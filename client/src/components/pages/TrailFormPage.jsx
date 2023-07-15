@@ -92,35 +92,26 @@ export default function TrailFormPage() {
         <div>
             <AccountNavigation />
             <form className="mx-2" onSubmit={submitHandler}>
-                {preInput("Title", "A name that is known by public, please")}
+                {preInput("Title", "might need to remove later")}
                 <input
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder="title : please input the trail's name"
                 />
-                {preInput(
-                    "Location",
-                    "The proper location is necessary, Other user may do some research for more information"
-                )}
+                {preInput("Location", "might need to remove later")}
                 <input
                     type="text"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     placeholder="location : please input the trail's location"
                 />
-                {preInput(
-                    "Images",
-                    "You love beatiful scenarios, so does everyone else"
-                )}
+                {preInput("Images", "might need to remove later")}
                 <PhotoUploader
                     addedPhoto={addedPhoto}
                     onChange={setAddedPhoto}
                 />
-                {preInput(
-                    "Descriptions",
-                    "Please descript the trail. Would also be great if you can include the location you took the photographs"
-                )}
+                {preInput("Descriptions", "Please input valuable descriptions")}
                 <textarea
                     value={descriptions}
                     onChange={(e) => setDescriptions(e.target.value)}
@@ -131,7 +122,7 @@ export default function TrailFormPage() {
                 </div>
                 {preInput(
                     "Extra Info",
-                    "If there is any useful tip or things to aware"
+                    "If there is any useful tip aor things to aware"
                 )}
                 <textarea
                     value={extraInfo}
@@ -185,11 +176,6 @@ export default function TrailFormPage() {
                 </div>
                 <button className="primary mt-4">save my trail</button>
             </form>
-            {/* <div className="flex flex-col items-center">
-                <button className=" bg-slate-300 w-1/4 my-4 py-2 px-4 rounded-2xl" onClick={() => deleteHandler()}>
-                    remove
-                </button>
-            </div> */}
         </div>
     );
 }
