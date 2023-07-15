@@ -28,10 +28,14 @@ export default function Header() {
                     to={user ? "/account" : "/login"}
                     className="flex items-center border gap-2 border-slate-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
                     <HiMenu />
-                    <div className="bg-primary text-white rounded-full border border-primary overflow-hidden">
+                    {/* <div className="bg-primary text-white rounded-full border border-primary overflow-hidden">
                         <HiUser className="relative text-xl border-primary" />
-                    </div>
-                    {user && <div>{user.username}</div>}
+                    </div> */}
+                    {user && (
+                        <div className="text-primary font-bold">
+                            {user.username}
+                        </div>
+                    )}
                 </Link>
             </header>
         </div>
