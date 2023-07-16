@@ -5,8 +5,9 @@ import {
     useNavigate,
     useParams,
 } from "react-router-dom";
-import { HiOutlineUser } from "react-icons/hi";
-import { CgTrees, CgTree } from "react-icons/cg";
+import { HiOutlineUser } from "@react-icons/all-files/hi/HiOutlineUser";
+import { CgTrees } from "@react-icons/all-files/cg/CgTrees";
+import { CgTree } from "@react-icons/all-files/cg/CgTree";
 import axios from "axios";
 
 export default function AccountNavigation() {
