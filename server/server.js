@@ -7,7 +7,8 @@ const cookieParser = require("cookie-parser");
 const imageDownloader = require("image-downloader");
 const multer = require("multer");
 const fs = require("fs");
-require("dotenv").config();
+require("dotenv").config({ path: "./config.env" });
+const path = require("path");
 
 const UserModel = require("./models/userModel");
 const TrailModel = require("./models/trailsModel");
@@ -20,9 +21,27 @@ app.use(cookieParser());
 app.use("/uploads/", express.static(`${__dirname}/uploads/`)); // <-- used to handle uploaded photos
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 mongoose.connect(
-    "mongodb+srv://kaiiemsawat:Kinkin3710@cluster0.48awedd.mongodb.net/trails?retryWrites=true&w=majority"
+    process.env.MONGO_URL
+    // "mongodb+srv://kaiiemsawat:Kinkin3710@cluster0.48awedd.mongodb.net/trails?retryWrites=true&w=majority"
     // { useNewUrlParser: true }
 );
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../client/dist")));
+
+    app.get("*", (req, res) => {
+        // console.log(__dirname);
+        res.sendFile(
+            path.join(__dirname, "..", "client", "dist", "index.html")
+        );
+    });
+} else {
+    app.get("", (rq, res) => {
+        res.send("API running");
+    });
+}
+
+const PORT = process.env.PORT;
 
 app.get("/test", (req, res) => {
     res.json("Test OK");
@@ -231,7 +250,7 @@ app.delete("/deleteTrail/:id", (req, res) => {
 });
 
 // app.listen(8000);
-app.listen(process.env.PORT || 8000, () => {
+app.listen(PORT, () => {
     "Connected !!!";
 });
 
