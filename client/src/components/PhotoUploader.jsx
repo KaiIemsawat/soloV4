@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import { BiImageAdd } from "react-icons/bi";
-import { CiSquareRemove } from "react-icons/ci";
-import { RiHeartLine, RiHeartFill } from "react-icons/ri";
+import { BiImageAdd } from "@react-icons/all-files/bi/BiImageAdd";
+import { CgRemoveR } from "@react-icons/all-files/cg/CgRemoveR";
+import { RiHeartLine } from "@react-icons/all-files/ri/RiHeartLine";
+import { RiHeartFill } from "@react-icons/all-files/ri/RiHeartFill";
 
 export default function PhotoUploader({ addedPhoto, onChange }) {
     const [photoLink, setPhotoLink] = useState("");
@@ -94,7 +95,7 @@ export default function PhotoUploader({ addedPhoto, onChange }) {
                             <button
                                 onClick={(e) => removePhoto(e, link)}
                                 className="cursor-pointer absolute bottom-2 right-2 text-slate-300 text-lg font-bold bg-slate-300 bg-opacity-20 rounded">
-                                <CiSquareRemove />
+                                <CgRemoveR />
                             </button>
                             <button
                                 onClick={(e) => setMainPhoto(e, link)}

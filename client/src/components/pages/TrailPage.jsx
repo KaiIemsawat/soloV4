@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { IoMdImages } from "react-icons/io";
-import { MdLocationPin } from "react-icons/md";
-import { CiSquareRemove } from "react-icons/ci";
+import { IoMdImages } from "@react-icons/all-files/io/IoMdImages";
+import { HiLocationMarker } from "@react-icons/all-files/hi/HiLocationMarker";
+import { CgRemoveR } from "@react-icons/all-files/cg/CgRemoveR";
 
 export default function TrailPage() {
     const { id } = useParams();
@@ -32,7 +32,7 @@ export default function TrailPage() {
                         <button
                             onClick={() => setShowAllPhotos(false)}
                             className="flex fixed gap-1 items-center py-2 px-4 rounded-2xl bg-slate-600 bg-opacity-30 text-slate-200 bottom-4 right-2 mx-8">
-                            <CiSquareRemove /> Close
+                            <CgRemoveR /> Close
                         </button>
                     </div>
                     {trail?.photo?.length > 0 &&
@@ -56,7 +56,7 @@ export default function TrailPage() {
                 className="flex items-center gap-1 my-3 font-semibold underline text-slate-500"
                 target="_blank"
                 href={`https://maps.google.com/?q=${trail.location}`}>
-                <MdLocationPin />
+                <HiLocationMarker />
                 {trail.location}
             </a>
             <div className="relative">
