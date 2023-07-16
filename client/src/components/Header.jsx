@@ -1,6 +1,6 @@
-import { CgTrees } from "react-icons/cg";
+import { CgTrees } from "@react-icons/all-files/cg/CgTrees";
 // import { BiSearch } from "react-icons/bi";
-import { HiMenu, HiUser } from "react-icons/hi";
+import { HiMenu } from "@react-icons/all-files/hi/HiMenu";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "./UserContext.jsx";

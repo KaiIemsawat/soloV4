@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { MdAddLocationAlt } from "react-icons/md";
-import { CiSquareRemove } from "react-icons/ci";
+import { MdAddLocation } from "@react-icons/all-files/md/MdAddLocation";
+import { CgRemoveR } from "@react-icons/all-files/cg/CgRemoveR";
 import { useEffect, useState } from "react";
 
 import axios from "axios";
@@ -31,7 +31,7 @@ export default function MyTrails() {
                 <Link
                     className="items-center inline-flex gap-1 bg-primary text-white py-2 px-6 rounded-full"
                     to={"/account/myTrails/new"}>
-                    <MdAddLocationAlt className="text-lg" />
+                    <MdAddLocation className="text-lg" />
                     add new trail
                 </Link>
                 <div className="mt-4">
@@ -65,7 +65,7 @@ export default function MyTrails() {
                                         deleteHandler(eachTrail._id)
                                     }
                                     className="cursor-pointer px-1 flex items-center absolute bottom-2 right-2 text-slate-300 text-sm bg-slate-300 bg-opacity-20 rounded">
-                                    <CiSquareRemove /> remove trail
+                                    <CgRemoveR /> remove trail
                                 </button>
                             </div>
                         ))}
