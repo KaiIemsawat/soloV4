@@ -68,7 +68,7 @@ app.post("/login", async (req, res) => {
     const userDoc = await UserModel.findOne({ email });
     if (!userDoc) {
         console.log("Can not find user in database");
-        res.json("User not founnd");
+        res.status(400).json("User not founnd");
     } else {
         console.log("Found user in database");
         const isPasswordOk = bcrypt.compareSync(password, userDoc.password);

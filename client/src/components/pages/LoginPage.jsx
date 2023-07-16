@@ -17,7 +17,7 @@ function LoginPage() {
             setUser(data);
             console.log(data.data);
             if (data.data === "User not founnd") {
-                alert("User not found");
+                alert("User not found, please try again");
                 window.location.reload(); // ! tempory fix issue that the name only appear once refresh page
             } else {
                 alert("LOGGED IN");
